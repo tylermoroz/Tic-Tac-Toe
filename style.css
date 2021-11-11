@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#gameboard {
+    display: grid;
+    border: 2px solid black;
+    width: 400px;
+    height: 395px;
+    grid-template-columns: repeat(3, 3fr);
+    grid-template-rows: repeat(3, 3fr);
+}
+
+.gamecell {
+    border: 2px solid black;
+}
