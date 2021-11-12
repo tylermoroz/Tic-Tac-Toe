@@ -24,3 +24,9 @@ body {
 .gamecell {
     border: 2px solid black;
 }
+
+p {
+    text-align: center;
+    font-size: 120px;
+    margin: -15px;
+}

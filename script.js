@@ -1,13 +1,21 @@
 const gameModule = (() => {
 
     const Gameboard = (() => {
-        const gameBoard = ['x','o','x','o','x'];
+        const gameBoard = [];
         return { gameBoard };
     })();
 
     const displayController = (() => {
-
-        return { };
+        const gameCell = document.querySelector('.gamecell');
+        gameCell.addEventListener('click', function(){
+            const choice = document.createElement('p');
+            choice.textContent = 'x';
+            gameCell.appendChild(choice);  
+            Gameboard.gameBoard.push(choice.textContent);
+            console.log(choice.textContent);
+            console.log(Gameboard.gameBoard);
+        })          
+        return { gameCell, };
     })();
 
     const player = (name) => {
