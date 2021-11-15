@@ -6,15 +6,16 @@ const gameModule = (() => {
     })();
 
     const displayController = (() => {
-        const gameCell = document.querySelector('.gamecell');
-        gameCell.addEventListener('click', function(){
-            const choice = document.createElement('p');
-            choice.textContent = 'x';
-            gameCell.appendChild(choice);  
-            Gameboard.gameBoard.push(choice.textContent);
-            console.log(choice.textContent);
-            console.log(Gameboard.gameBoard);
-        })          
+        const gameCell = [...document.querySelectorAll('.gamecell')].forEach(function (cell){
+            cell.addEventListener('click', function(){
+                const choice = document.createElement('p');
+                choice.textContent = 'x';
+                cell.appendChild(choice);  
+                Gameboard.gameBoard.push(choice.textContent);
+                console.log(choice.textContent);
+                console.log(Gameboard.gameBoard);
+            })
+        });          
         return { gameCell, };
     })();
 
