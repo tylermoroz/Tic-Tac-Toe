@@ -5,7 +5,7 @@ body {
 }
 
 #container {
-    width: 600px;
+    width: 800px;
     height: 600px;
     display: flex;
     justify-content: center;
@@ -13,6 +13,7 @@ body {
 }
 
 #gameboard {
+    order: 2;
     display: grid;
     border: 2px solid black;
     width: 400px;
@@ -27,4 +28,30 @@ body {
     font-size: 120px;
     margin: 1px;
     line-height: 105px;
+}
+
+.nameplate {
+    display: flex;
+    height: 480px;
+}
+
+.name {
+    font-size: 42;
+    margin-top: 0px;
+}
+
+#playerA {
+    order: 1;
+    padding-right: 55px;
+    text-decoration: underline;
+}
+
+#playerB {
+    order: 3;
+    padding-left: 55px;
+    text-decoration: underline;
+}
+
+.active {
+    text-shadow: 1px 1px 10px #fff, 1px 1px 10px blue;
 }
