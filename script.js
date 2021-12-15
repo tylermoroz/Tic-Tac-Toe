@@ -55,6 +55,16 @@ const gameModule = (() => {
 
         const tieGame = arr => arr.includes('x', 'o');
 
+        const winner = function(player){
+            const winnerOverlay = document.querySelector('.overlay');
+            const overlayModal = document.querySelector('.winner');
+
+            winnerOverlay.style.display = 'block';
+            overlayModal.style.display = 'block';
+            overlayModal.textContent = `${player.playerName.textContent} Wins!`;
+            overlayModal.style.fontSize = 'xx-large';
+        }
+
         let player1 = 'active';
         let player2 = '';
 
@@ -82,13 +92,13 @@ const gameModule = (() => {
                 player1 = '';
                 playerTwoActive.classList.add('active');
                 playerOneActive.classList.remove('active');
-                alert("Player 1 has already selected this tile.");
+                alert(`${playerA.playerName.textContent} has already selected this tile.`);
             } else if(player1 == 'active' && this.textContent == 'o'){
                 player1 = 'active';
                 player2 = '';
                 playerOneActive.classList.add('active');
                 playerTwoActive.classList.remove('active');
-                alert("Player 2 has already selected this tile.");
+                alert(`${playerB.playerName.textContent} has already selected this tile.`);
             } else if (player2 == 'active' && this.textContent == 'o'){
                 player2 = 'active';
                 player1 = '';
@@ -162,51 +172,52 @@ const gameModule = (() => {
             }
 
             if(Gameboard.gameBoard[0] =='x' && Gameboard.gameBoard[1] == 'x' && Gameboard.gameBoard[2] == 'x'){
-                console.log('player 1 wins');
+                winner(playerA);
                 endGame();
             } else if(Gameboard.gameBoard[3] == 'x' && Gameboard.gameBoard[4] =='x' && Gameboard.gameBoard[5] == 'x'){
-                console.log('player 1 wins');
+                winner(playerA);
                 endGame();
             } else if(Gameboard.gameBoard[6] =='x' && Gameboard.gameBoard[7] =='x' && Gameboard.gameBoard[8] == 'x'){
-                console.log('player 1 wins');
+                winner(playerA);
                 endGame();
             } else if(Gameboard.gameBoard[0] =='x' && Gameboard.gameBoard[3] =='x' && Gameboard.gameBoard[6] == 'x'){
-                console.log('player 1 wins');
+                winner(playerA);
                 endGame();
             } else if(Gameboard.gameBoard[1] == 'x' && Gameboard.gameBoard[4] == 'x' && Gameboard.gameBoard[7] == 'x'){
-                console.log('player 1 wins');
+                winner(playerA);
                 endGame();
             } else if(Gameboard.gameBoard[2] == 'x' && Gameboard.gameBoard[5] == 'x' && Gameboard.gameBoard[8] == 'x'){
-                console.log('player 1 wins');
+                winner(playerA);
                 endGame();
             } else if(Gameboard.gameBoard[0] == 'x' && Gameboard.gameBoard[4] == 'x' && Gameboard.gameBoard[8] == 'x'){
-                console.log('player 1 wins');
+                winner(playerA);
                 endGame();
             } else if(Gameboard.gameBoard[2] == 'x' && Gameboard.gameBoard[4] == 'x' && Gameboard.gameBoard[6] == 'x'){
-                console.log('player 1 wins');
+                winner(playerA);
                 endGame();
             } else if(Gameboard.gameBoard[0] == 'o' && Gameboard.gameBoard[1] == 'o' && Gameboard.gameBoard[2] == 'o'){
-                console.log('player 2 wins');
+                winner(playerB);
                 endGame();
             } else if(Gameboard.gameBoard[3] == 'o' && Gameboard.gameBoard[4] == 'o' && Gameboard.gameBoard[5] == 'o'){
-                console.log('player 2 wins');
+                winner(playerB);
                 endGame();
             } else if(Gameboard.gameBoard[6] == 'o' && Gameboard.gameBoard[7] == 'o' && Gameboard.gameBoard[8] == 'o'){
-                console.log('player 2 wins');
+                winner(playerB);
                 endGame();
             } else if(Gameboard.gameBoard[0] == 'o' && Gameboard.gameBoard[3] == 'o' && Gameboard.gameBoard[6] == 'o'){
-                console.log('player 2 wins');
+                winner(playerB);
                 endGame();
             } else if(Gameboard.gameBoard[1] == 'o' && Gameboard.gameBoard[4] == 'o' && Gameboard.gameBoard[7] == 'o'){
-                console.log('player 2 wins');
+                winner(playerB);
+                endGame();
             } else if(Gameboard.gameBoard[2] == 'o' && Gameboard.gameBoard[5] == 'o' && Gameboard.gameBoard[8] == 'o'){
-                console.log('player 2 wins');
+                winner(playerB);
                 endGame();
             } else if(Gameboard.gameBoard[0] == 'o' && Gameboard.gameBoard[4] == 'o' && Gameboard.gameBoard[8] == 'o'){
-                console.log('player 2 wins');
+                winner(playerB);
                 endGame();
             } else if(Gameboard.gameBoard[2] == 'o' && Gameboard.gameBoard[4] == 'o' && Gameboard.gameBoard[6] == 'o'){
-                console.log('player 2 wins');
+                winner(playerB);
                 endGame();
             }
 
