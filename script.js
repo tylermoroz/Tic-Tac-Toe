@@ -53,16 +53,26 @@ const gameModule = (() => {
         const diagonal1 = [];
         const diagonal2 = [];
 
+        const overlay = document.querySelector('.overlay');
+
         const tieGame = arr => arr.includes('x', 'o');
 
-        const winner = function(player){
-            const winnerOverlay = document.querySelector('.overlay');
-            const overlayModal = document.querySelector('.winner');
+        const tieGameOverlay = function(){
+            const tieModal = document.querySelector('.tie');
 
-            winnerOverlay.style.display = 'block';
-            overlayModal.style.display = 'block';
-            overlayModal.textContent = `${player.playerName.textContent} Wins!`;
-            overlayModal.style.fontSize = 'xx-large';
+            overlay.style.display = 'block';
+            tieModal.style.display = 'block';
+            tieModal.textContent = `Tie Game!`;
+            tieModal.style.fontSize = 'xx-large';
+        }
+
+        const winner = function(player){
+            const winnerModal = document.querySelector('.winner');
+
+            overlay.style.display = 'block';
+            winnerModal.style.display = 'block';
+            winnerModal.textContent = `${player.playerName.textContent} Wins!`;
+            winnerModal.style.fontSize = 'xx-large';
         }
 
         let player1 = 'active';
@@ -157,8 +167,6 @@ const gameModule = (() => {
                 diagonal1.push(cell9.textContent);
             }
 
-            console.log(Gameboard.gameBoard);
-
             const endGame = function(){
                 cell1.removeEventListener('click', gameLogic);
                 cell2.removeEventListener('click', gameLogic);
@@ -222,7 +230,7 @@ const gameModule = (() => {
             }
 
             if(row1.length == 3 && row2.length == 3 && row3.length == 3 && column1.length == 3 && column2.length == 3 && column3.length == 3 && diagonal1.length == 3 && diagonal2.length == 3 && tieGame(row1) && tieGame(row2) && tieGame(row3) && tieGame(column1) && tieGame(column2) && tieGame(column3) && tieGame(diagonal1) && tieGame(diagonal2)){
-                console.log("Tie Game!");
+                tieGameOverlay();
             }
             
         }
