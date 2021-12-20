@@ -33,17 +33,17 @@ const gameModule = (() => {
         return { name, playerNameplate, playerName };
     }
 
-    let playerA = player(prompt('Enter your name', ));
-    let playerB = player(prompt('Enter your name', ));
-
-    playerA.playerNameplate.id = "playerA";
-    playerB.playerNameplate.id = "playerB";
-
-    playerA.playerName.id = "player1";
-    playerB.playerName.id = "player2";
-
 
     const displayController = (() => {
+        let playerA = player(prompt('Enter your name', ));
+        let playerB = player(prompt('Enter your name', ));
+
+        playerA.playerNameplate.id = "playerA";
+        playerB.playerNameplate.id = "playerB";
+
+        playerA.playerName.id = "player1";
+        playerB.playerName.id = "player2";
+        
         const row1 = [];
         const row2 = [];
         const row3 = [];
