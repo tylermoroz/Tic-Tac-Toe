@@ -43,36 +43,93 @@ const gameModule = (() => {
 
         playerA.playerName.id = "player1";
         playerB.playerName.id = "player2";
-        
-        const row1 = [];
-        const row2 = [];
-        const row3 = [];
-        const column1 = [];
-        const column2 = [];
-        const column3 = [];
-        const diagonal1 = [];
-        const diagonal2 = [];
+
+        let row1 = [];
+        let row2 = [];
+        let row3 = [];
+        let column1 = [];
+        let column2 = [];
+        let column3 = [];
+        let diagonal1 = [];
+        let diagonal2 = [];
 
         const overlay = document.querySelector('.overlay');
+        const tieModal = document.querySelector('.tie');
+        const winnerModal = document.querySelector('.winner');
+        const reset = document.querySelector('.reset');
+
+        const resetGame = function(){
+            cell1.textContent = '';
+            cell2.textContent = '';
+            cell3.textContent = '';
+            cell4.textContent = '';
+            cell5.textContent = '';
+            cell6.textContent = '';
+            cell7.textContent = '';
+            cell8.textContent = '';
+            cell9.textContent = '';
+
+            Gameboard.gameBoard[0] = cell1.textContent;
+            Gameboard.gameBoard[1] = cell2.textContent;
+            Gameboard.gameBoard[2] = cell3.textContent;
+            Gameboard.gameBoard[3] = cell4.textContent;
+            Gameboard.gameBoard[4] = cell5.textContent;
+            Gameboard.gameBoard[5] = cell6.textContent;
+            Gameboard.gameBoard[6] = cell7.textContent;
+            Gameboard.gameBoard[7] = cell8.textContent;
+            Gameboard.gameBoard[8] = cell9.textContent;
+
+            row1 = [];
+            row2 = [];
+            row3 = [];
+            column1 = [];
+            column2 = [];
+            column3 = [];
+            diagonal1 = [];
+            diagonal2 = [];
+
+            overlay.style.display = 'none';
+            tieModal.style.display = 'none';
+            tieModal.textContent = ``;
+            tieModal.style.fontSize = '';
+            winnerModal.style.display = 'none';
+            winnerModal.textContent = ``;
+            winnerModal.style.fontSize = '';
+            reset.style.display = 'none';
+
+            cell1.addEventListener('click', gameLogic);
+            cell2.addEventListener('click', gameLogic);
+            cell3.addEventListener('click', gameLogic);
+            cell4.addEventListener('click', gameLogic);
+            cell5.addEventListener('click', gameLogic);
+            cell6.addEventListener('click', gameLogic);
+            cell7.addEventListener('click', gameLogic);
+            cell8.addEventListener('click', gameLogic);
+            cell9.addEventListener('click', gameLogic);
+        }
 
         const tieGame = arr => arr.includes('x', 'o');
 
         const tieGameOverlay = function(){
-            const tieModal = document.querySelector('.tie');
 
             overlay.style.display = 'block';
             tieModal.style.display = 'block';
             tieModal.textContent = `Tie Game!`;
             tieModal.style.fontSize = 'xx-large';
+            reset.style.display = 'block';
+
+            reset.addEventListener('click', resetGame)
         }
 
         const winner = function(player){
-            const winnerModal = document.querySelector('.winner');
 
             overlay.style.display = 'block';
             winnerModal.style.display = 'block';
             winnerModal.textContent = `${player.playerName.textContent} Wins!`;
             winnerModal.style.fontSize = 'xx-large';
+            reset.style.display = 'block';
+
+            reset.addEventListener('click', resetGame)
         }
 
         let player1 = 'active';
