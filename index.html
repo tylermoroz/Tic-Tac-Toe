@@ -1,29 +1,41 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Tic-Tac-Toe</title>
+    <title>Tic Tac Toe</title>
 </head>
 <body>
-    <div class="overlay"></div>
-    <div class="winner"></div>
-    <div class="tie"></div>
-    <button class="reset">New Game</button>
-    <div id='container'>
-        <div id='gameboard'>
-            <div class='gamecell' id='cell1'></div>
-            <div class='gamecell' id='cell2'></div>
-            <div class='gamecell' id='cell3'></div>
-            <div class='gamecell' id='cell4'></div>
-            <div class='gamecell' id='cell5'></div>
-            <div class='gamecell' id='cell6'></div>
-            <div class='gamecell' id='cell7'></div>
-            <div class='gamecell' id='cell8'></div>
-            <div class='gamecell' id='cell9'></div>
+    <div id="title">Tic-Tac-Toe</div>
+    <div id="restart">
+        <button id="restart-btn">Restart</button>
+    </div>
+    <div id="formModal" class="modal" role="form">
+        <div class="modal-form">
+            <form id="player-names">
+                <div class="form-container">
+                    <input type="text" placeholder="Player 1" name="player-one" id="player-one">
+                    <input type="text" placeholder="Player 2" name="player-two" id="player-two">
+                    <button type="submit" class="submit-button">Enter</button>
+                </div>
+            </form>
         </div>
     </div>
+    <div class="player active-player" id="player1"></div>
+    <div id="board">
+        <div class="cell row1 col1 diag1" id="cell-1"></div>
+        <div class="cell row1 col2" id="cell-2"></div>
+        <div class="cell row1 col3 diag2" id="cell-3"></div>
+        <div class="cell row2 col1" id="cell-4"></div>
+        <div class="cell row2 col2 diag1 diag2" id="cell-5"></div>
+        <div class="cell row2 col3" id="cell-6"></div>
+        <div class="cell row3 col1 diag2" id="cell-7"></div>
+        <div class="cell row3 col2" id="cell-8"></div>
+        <div class="cell row3 col3 diag1" id="cell-9"></div>
+    </div>
+    <div class="player" id="player2"></div>
     <script src="script.js"></script>
 </body>
 </html>
